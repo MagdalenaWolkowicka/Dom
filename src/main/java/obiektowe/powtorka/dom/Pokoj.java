@@ -2,8 +2,8 @@ package obiektowe.powtorka.dom;
 
 public class Pokoj {
 
-    Lozko lozko;
-    Okno[] okna = new Okno[2];
+    private Lozko lozko;
+    private Okno[] okna = new Okno[2];
 
     public Pokoj(Lozko lozko, Okno[] okna) {
         this.lozko = lozko;

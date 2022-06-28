@@ -2,7 +2,7 @@ package obiektowe.powtorka.dom;
 
 public class Dom {
 
-    Pokoj[] pokoje;
+    private Pokoj[] pokoje;
 
     public Dom(Pokoj[] pokoje) {
         this.pokoje = pokoje;

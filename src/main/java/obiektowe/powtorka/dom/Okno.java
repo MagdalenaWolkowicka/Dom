@@ -2,7 +2,7 @@ package obiektowe.powtorka.dom;
 
 public class Okno {
 
-    boolean zamknięte = true;
+    private boolean zamknięte = true;
 
     public Okno(boolean zamknięte) {
         this.zamknięte = zamknięte;
