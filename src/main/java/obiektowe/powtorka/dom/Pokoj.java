@@ -1,9 +1,11 @@
 package obiektowe.powtorka.dom;
 
+import java.util.Arrays;
+
 public class Pokoj {
 
     private Lozko lozko;
-    private Okno[] okna = new Okno[2];
+    private Okno[] okna;
 
     public Pokoj(Lozko lozko, Okno[] okna) {
         this.lozko = lozko;
@@ -13,6 +15,8 @@ public class Pokoj {
     public Pokoj() {
         okna = new Okno[2];
         lozko = new Lozko(5);
+        okna[0] = new Okno();
+        okna[1] = new Okno();
     }
 
     public void posprzatajPokoj() {
@@ -26,5 +30,11 @@ public class Pokoj {
         lozko.setDniOdZmianyPoscieli(0);
     }
 
-
+    @Override
+    public String toString() {
+        return "Pokoj{" +
+                "lozko=" + lozko +
+                ", okna=" + Arrays.toString(okna) +
+                '}';
+    }
 }

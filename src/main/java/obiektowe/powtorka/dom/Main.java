@@ -20,9 +20,20 @@ public class Main {
 
         Pokoj pokoj = new Pokoj();
         Pokoj pokoj1 = new Pokoj(lozko, okna);
+
+        System.out.println(pokoj);
+        System.out.println(pokoj1);
+
         Pokoj pokoje[] = new Pokoj[]{pokoj,pokoj1};
 
         Dom dom = new Dom(pokoje);
+
+        System.out.println(dom);
+
+        dom.sprzatajPokoje();
+
+        System.out.println(dom);
+
 
 
 
