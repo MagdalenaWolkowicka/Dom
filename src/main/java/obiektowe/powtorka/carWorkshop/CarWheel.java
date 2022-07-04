@@ -9,6 +9,12 @@ public class CarWheel {
         this.pressure = pressure;
     }
 
+    public void doFlatWheel() {
+        pressure = 0;
+        isWheelWorking = false;
+
+    }
+
     public boolean isWheelWorking() {
         return isWheelWorking;
     }

@@ -26,7 +26,8 @@ public class Main {
         CarWorkshop carWorkshop = new CarWorkshop(car);
 
         Receipt receipt = carWorkshop.repairWheel(carWheels);
-        System.out.println(receipt);
+        //System.out.println(receipt);
+        receipt.printReceipt();
 
         printWheels(carWheels);
 

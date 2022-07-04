@@ -1,16 +1,14 @@
 package obiektowe.powtorka.kompozycja;
 
+
 public class BlokDemo {
 
-    //Blok blok = new Blok();
 
     public static void main(String[] args) {
 
-
         Mieszkanie mieszkanie1 = new Mieszkanie(4);
-        Mieszkanie mieszkanie2 = new Mieszkanie(6);
-        Mieszkanie mieszkanie3 = new Mieszkanie(7);
-
+        Mieszkanie mieszkanie2 = new Mieszkanie(5);
+        Mieszkanie mieszkanie3= new Mieszkanie(6);
 
 
         Mieszkanie[] mieszkania = new Mieszkanie[3];
@@ -21,8 +19,12 @@ public class BlokDemo {
         Blok blok = new Blok(mieszkania);
 
         System.out.println(blok);
-        SerwisSpoldzielni serwisSpoldzielni = new SerwisSpoldzielni();
-        serwisSpoldzielni.opaclCzynsz(3);
+
+        SerwisSpoldzielni serwisSpoldzielni = new SerwisSpoldzielni(blok);
+        serwisSpoldzielni.opaclCzynsz(4);
+
+        System.out.println(blok);
+
 
 
 

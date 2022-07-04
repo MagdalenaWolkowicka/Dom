@@ -11,6 +11,11 @@ public class Receipt {
         this.price = price;
     }
 
+    public void  printReceipt() {
+        System.out.printf("Typ naprawy - %s, ilosc %d, cena %d zł \n", service, count, price);
+        //String.format();
+    }
+
     @Override
     public String toString() {
         return "Receipt{" +
@@ -18,5 +23,9 @@ public class Receipt {
                 ", count=" + count +
                 ", price=" + price +
                 '}';
+    }
+
+    public int getCount() {
+        return count;
     }
 }

@@ -2,6 +2,8 @@ package obiektowe.powtorka.carWorkshop;
 
 public class CarWorkshop {
 
+    private final static double PRICE = 50;
+
     public CarWorkshop(Car car) {
     }
 
