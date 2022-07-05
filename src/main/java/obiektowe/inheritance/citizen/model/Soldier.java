@@ -1,6 +1,6 @@
 package obiektowe.inheritance.citizen.model;
 
-public class Soldier extends Citizen{
+public class Soldier extends Citizen {
 
     public Soldier(String name) {
         super(name);

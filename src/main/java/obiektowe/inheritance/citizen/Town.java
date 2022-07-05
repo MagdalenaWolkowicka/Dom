@@ -1,24 +1,23 @@
 package obiektowe.inheritance.citizen;
 
 import obiektowe.inheritance.citizen.model.*;
-import obiektowe.powtorka.postOffice.Package;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class Town {
 
-    public static int howManyCanVote(List <Citizen>list) {
+    public static int howManyCanVote(List<Citizen> list) {
         int count = 0;
         for (Citizen citizen : list) {
-           if (citizen.canVote()) {
-              count++;
-           }
+            if (citizen.canVote()) {
+                count++;
+            }
         }
         return count;
     }
 
-    public static void whoCanVote(List <Citizen> list) {
+    public static void whoCanVote(List<Citizen> list) {
         for (Citizen citizen : list) {
             if (citizen.canVote()) {
                 System.out.println(citizen.getName());
@@ -34,7 +33,7 @@ public class Town {
         TownsMan townsMan = new TownsMan("Felek mieszczuch");
         Peasant peasant = new Peasant("Zbychu wiesniak");
 
-        List <Citizen> citizensList = new ArrayList<>();
+        List<Citizen> citizensList = new ArrayList<>();
         citizensList.add(king);
         citizensList.add(soldier);
         citizensList.add(townsMan);
@@ -44,7 +43,6 @@ public class Town {
         System.out.println(number);
 
         whoCanVote(citizensList);
-
 
 
     }
