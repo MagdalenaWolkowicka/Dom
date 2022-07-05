@@ -7,6 +7,12 @@ import java.util.List;
 
 public class Town {
 
+    List<Citizen> citizensList = new ArrayList<>();
+
+    public void add(Citizen citizen) {
+        citizensList.add(citizen);
+    }
+
     public static int howManyCanVote(List<Citizen> list) {
         int count = 0;
         for (Citizen citizen : list) {
@@ -17,33 +23,16 @@ public class Town {
         return count;
     }
 
+    public List<Citizen> getCitizensList() {
+        return citizensList;
+    }
+
     public static void whoCanVote(List<Citizen> list) {
         for (Citizen citizen : list) {
             if (citizen.canVote()) {
                 System.out.println(citizen.getName());
             }
         }
-
     }
 
-    public static void main(String[] args) {
-
-        King king = new King("Tadek król");
-        Soldier soldier = new Soldier("Romek żołnierz");
-        TownsMan townsMan = new TownsMan("Felek mieszczuch");
-        Peasant peasant = new Peasant("Zbychu wiesniak");
-
-        List<Citizen> citizensList = new ArrayList<>();
-        citizensList.add(king);
-        citizensList.add(soldier);
-        citizensList.add(townsMan);
-        citizensList.add(peasant);
-
-        int number = howManyCanVote(citizensList);
-        System.out.println(number);
-
-        whoCanVote(citizensList);
-
-
-    }
 }
