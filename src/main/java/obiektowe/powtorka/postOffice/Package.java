@@ -11,6 +11,7 @@ public class Package {
     private String recipient;
     private int weight;
     private boolean priority = false;
+    private Status status;
 
     public Package(String sender, String recipient, int weight) {
         boolean packageIsCreated = true;
@@ -26,6 +27,7 @@ public class Package {
             this.sender = sender;
             this.recipient = recipient;
             this.weight = weight;
+            this.status = Status.CREATED;
         } else {
             System.out.println("Paczka nieutworzona");
         }
@@ -39,6 +41,7 @@ public class Package {
         this.recipient = recipientList.get(random.nextInt(recipientList.size()));
         this.weight = random.nextInt(100_000) + 1;
         this.priority = random.nextBoolean();
+        this.status = Status.CREATED;
     }
 
     public double countPrice() {
@@ -66,8 +69,15 @@ public class Package {
                 ", recipient='" + recipient + '\'' +
                 ", weight=" + weight +
                 ", priority=" + priority +
+                ", status=" + status +
                 '}';
     }
 
+    public Status getStatus() {
+        return status;
+    }
 
+    public void setStatus(Status status) {
+        this.status = status;
+    }
 }

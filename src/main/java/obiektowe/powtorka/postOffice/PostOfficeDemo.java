@@ -43,6 +43,12 @@ public class PostOfficeDemo {
         }
         System.out.println(allPackagePrice);
 
+        PostOffice postOffice = new PostOffice();
+
+        Package newPackage = new Package("Ala", "Franek", 2000);
+        postOffice.sendPackage(newPackage, 14);
+        System.out.println(newPackage);
+
 
     }
 
