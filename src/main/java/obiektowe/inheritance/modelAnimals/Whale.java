@@ -1,19 +1,16 @@
-package obiektowe.inheritance;
+package obiektowe.inheritance.modelAnimals;
 
-public class Whale extends Animal{
-    private String name;
-    private int age;
+public class Whale extends Animal {
+
     private double weight;
 
     public Whale(String name, int age, double weight) {
-        this.name = name;
-        this.age = age;
+        super(name, age);
         this.weight = weight;
     }
 
     public Whale() {
-        name = "Kraken";
-        age = 60;
+        super("Kraken", 60);
         weight = 0.5;
     }
 
@@ -32,5 +29,10 @@ public class Whale extends Animal{
 
     public void goToSleep() {
         System.out.println("Słoń śpi");
+    }
+
+    @Override
+    public void makeSound() {
+        booing();
     }
 }

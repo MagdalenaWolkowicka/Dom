@@ -1,6 +1,8 @@
 package obiektowe.inheritance.animals;
 
-import obiektowe.powtorka.linia.Linia;
+import obiektowe.inheritance.animals.modelAnimals.Animal;
+import obiektowe.inheritance.animals.modelAnimals.Cat;
+import obiektowe.inheritance.animals.modelAnimals.Elephant;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -20,6 +22,7 @@ public class AnimalDemo {
         animals.add(elephant1);
 
         for (Animal animal : animals) {
+            animal.makeSound();
             animal.goToSleep();
         }
 

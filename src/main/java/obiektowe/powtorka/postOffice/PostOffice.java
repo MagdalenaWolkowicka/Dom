@@ -35,6 +35,7 @@ public class PostOffice {
     }
 
     public void sendPackage(Package newPackage, double money) {
+        newPackage = createPackage();
         double price = newPackage.countPrice();
         if (money < price) {
             System.out.println("Wysyłka kosztuje " + price + " zł.");
@@ -50,6 +51,25 @@ public class PostOffice {
         }
 
 
+
+    }
+
+    private Package createPackage() {
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Podaj nadawcę");
+        String sender = scanner.nextLine();
+        System.out.println("Podaj osbiercę");
+        String recipient = scanner.nextLine();
+        System.out.println("Podaj wagę paczki");;
+        int weight = scanner.nextInt();
+        System.out.println("Priorytetowa? Tak / nie");
+        String yesOrNo = scanner.nextLine();
+        if(yesOrNo.equals("Tak")) {
+        }
+        return new Package(sender, recipient, weight);
+    }
+
+    private void checkPriority() {
 
     }
 
