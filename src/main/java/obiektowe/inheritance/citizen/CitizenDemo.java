@@ -19,9 +19,9 @@ public class CitizenDemo {
         town.add(townsMan);
         town.add(peasant);
 
-        int number = town.howManyCanVote(town.getCitizensList());
+        int number = town.howManyCanVote();
         System.out.println(number);
 
-        town.whoCanVote(town.getCitizensList());
+        town.whoCanVote();
     }
 }

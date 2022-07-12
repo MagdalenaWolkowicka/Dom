@@ -13,9 +13,9 @@ public class Town {
         citizensList.add(citizen);
     }
 
-    public static int howManyCanVote(List<Citizen> list) {
+    public int howManyCanVote() {
         int count = 0;
-        for (Citizen citizen : list) {
+        for (Citizen citizen : citizensList) {
             if (citizen.canVote()) {
                 count++;
             }
@@ -27,8 +27,8 @@ public class Town {
         return citizensList;
     }
 
-    public static void whoCanVote(List<Citizen> list) {
-        for (Citizen citizen : list) {
+    public void whoCanVote() {
+        for (Citizen citizen : citizensList) {
             if (citizen.canVote()) {
                 System.out.println(citizen.getName());
             }

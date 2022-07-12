@@ -3,7 +3,10 @@ package obiektowe.powtorka.postOffice;
 import java.util.Scanner;
 
 public class PostOffice {
+
     private boolean exitPostOffixe = false;
+    private PackageService packageService = new PackageService();
+    private static double takings;
 
     public void start() {
         System.out.println("Witamy na poczcie");
@@ -22,8 +25,16 @@ public class PostOffice {
         String option = scanner.nextLine();
         switch (option) {
             case "1":
+                packageService.sendPackage();
                 break;
             case "2":
+                packageService.displaySentPackages();
+                break;
+            case "3":
+                packageService.displayAllPackages();
+                break;
+            case "4":
+                System.out.println(getTakings());
                 break;
             case "0":
                 exitPostOffixe = true;
@@ -34,44 +45,15 @@ public class PostOffice {
         }
     }
 
-    public void sendPackage(Package newPackage, double money) {
-        newPackage = createPackage();
-        double price = newPackage.countPrice();
-        if (money < price) {
-            System.out.println("Wysyłka kosztuje " + price + " zł.");
-            System.out.println("Za mało kasy, nie udało się wysłać");
-            return;
-        } else if (money == price) {
-            newPackage.setStatus(Status.ACCEPTED);
-            System.out.println("Paczka wysłana ;)");
-        } else  {
-            newPackage.setStatus(Status.ACCEPTED);
-            double restOfMoney = money - price;
-            System.out.println("Wydaję " + restOfMoney + " zł reszty.");
-        }
-
-
-
+    public void increaseTakings(double price) {
+        this.takings = takings + price;
     }
 
-    private Package createPackage() {
-        Scanner scanner = new Scanner(System.in);
-        System.out.println("Podaj nadawcę");
-        String sender = scanner.nextLine();
-        System.out.println("Podaj osbiercę");
-        String recipient = scanner.nextLine();
-        System.out.println("Podaj wagę paczki");;
-        int weight = scanner.nextInt();
-        System.out.println("Priorytetowa? Tak / nie");
-        String yesOrNo = scanner.nextLine();
-        if(yesOrNo.equals("Tak")) {
-        }
-        return new Package(sender, recipient, weight);
+    public double getTakings() {
+        return takings;
     }
 
-    private void checkPriority() {
-
+    public void setTakings(double takings) {
+        this.takings = takings;
     }
-
-
 }

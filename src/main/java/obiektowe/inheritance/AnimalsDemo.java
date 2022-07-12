@@ -14,6 +14,8 @@ public class AnimalsDemo {
         Whale whale = new Whale();
         Whale whale1 = new Whale("Radek", 45, 7);
 
+        Cow cow = new Cow("Yola", 6);
+
         monkey.jump();
         monkey.uhaha();
 
@@ -26,8 +28,10 @@ public class AnimalsDemo {
 
         System.out.println("");
         AnimalGuide animalGuide = new AnimalGuide();
-        animalGuide.feedAnimal(monkey);  // polimorfizm
-        animalGuide.feedAnimal(whale);
+//        animalGuide.feedAnimal(monkey);  // polimorfizm
+//        animalGuide.feedAnimal(whale);
+
+        animalGuide.feedAnimal(cow);
         System.out.println("");
 
         // polimorfizm

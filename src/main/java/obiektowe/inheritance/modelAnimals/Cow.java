@@ -1,6 +1,9 @@
 package obiektowe.inheritance.modelAnimals;
 
-public class Cow extends Animal {
+import obiektowe.interfaces.FarmAnimals;
+import obiektowe.interfaces.LandCreature;
+
+public class Cow extends Animal implements FarmAnimals, LandCreature {
 
     public Cow(String name, int age) {
         super(name, age);

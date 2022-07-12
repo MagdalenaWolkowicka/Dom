@@ -1,6 +1,9 @@
 package obiektowe.inheritance.modelAnimals;
 
-public class Monkey extends Animal {
+import obiektowe.interfaces.LandCreature;
+import obiektowe.interfaces.WildAnimal;
+
+public class Monkey extends Animal implements WildAnimal, LandCreature {
 
     private int taleLength;
 

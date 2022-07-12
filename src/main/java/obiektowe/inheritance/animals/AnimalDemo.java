@@ -8,7 +8,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class AnimalDemo {
+
     public static void main(String[] args) {
+
 
         Cat cat1 = new Cat("Mruczek", 5, "biały");
         Cat cat2 = new Cat("Puszek", 7, "czarny");
@@ -25,6 +27,7 @@ public class AnimalDemo {
             animal.makeSound();
             animal.goToSleep();
         }
+
 
     }
 }

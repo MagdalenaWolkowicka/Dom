@@ -33,6 +33,13 @@ public class Package {
         }
     }
 
+    public Package(String sender, String recipient, int weight, boolean priority) {
+        this.sender = sender;
+        this.recipient = recipient;
+        this.weight = weight;
+        this.priority = priority;
+    }
+
     public Package() {
         List<String> senderList = new ArrayList<>(Arrays.asList("Ela", "Mela", "Cela", "Gizela", "Fela", "Hela", "Pamela"));
         List<String> recipientList = new ArrayList<>(Arrays.asList("Radek", "Stefan", "Lucek", "Henio", "Kazik", "Zenek", "Gutek"));

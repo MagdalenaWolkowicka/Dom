@@ -11,7 +11,9 @@ public class Menu {
         List<String> menuOptions = new ArrayList<>();
         menuOptions.add("\n -----Menu-----");
         menuOptions.add("1. Nadaj paczkę");
-        menuOptions.add("2. Nadaj list");
+        menuOptions.add("2. Wyświetl wysłane paczki");
+        menuOptions.add("3. Wyświelt wszystkie paczki");
+        menuOptions.add("4. Wyświetl utarg");
         menuOptions.add("0. Wyjdź");
         menuOptionsToPrint = String.join("\n", menuOptions);
     }

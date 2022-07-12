@@ -1,6 +1,5 @@
 package obiektowe.inheritance.modelAnimals;
 
-import javax.swing.plaf.synth.SynthOptionPaneUI;
 
 public abstract class Animal {
     protected String name;
