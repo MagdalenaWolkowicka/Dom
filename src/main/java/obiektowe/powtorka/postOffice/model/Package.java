@@ -1,46 +1,54 @@
 package obiektowe.powtorka.postOffice.model;
 
-import obiektowe.powtorka.postOffice.Status;
-
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
-import java.util.Random;
-
 public class Package {
 
-    private String sender;
-    private String recipient;
+    private Person sender;
+    private Person recipient;
     private int weight;
-    private boolean priority = false;
+    private boolean priority;
     private Status status;
 
-    public Package(String sender, String recipient, int weight) {
-        boolean packageIsCreated = true;
-        if (sender == null || recipient == null) {
-            System.out.println("Brak danych");
-            packageIsCreated = false;
-        }
-        if (weight < 1 || weight > 100000) {
-            System.out.println("Zła waga paczki");
-            packageIsCreated = false;
-        }
-        if (packageIsCreated) {
-            this.sender = sender;
-            this.recipient = recipient;
-            this.weight = weight;
-            this.status = Status.CREATED;
-        } else {
-            System.out.println("Paczka nieutworzona");
-        }
-    }
+//    public Package(String sender, String recipient, int weight) {
+//        boolean packageIsCreated = true;
+//        if (sender == null || recipient == null) {
+//            System.out.println("Brak danych");
+//            packageIsCreated = false;
+//        }
+//        if (weight < 1 || weight > 100000) {
+//            System.out.println("Zła waga paczki");
+//            packageIsCreated = false;
+//        }
+//        if (packageIsCreated) {
+//            this.sender = sender;
+//            this.recipient = recipient;
+//            this.weight = weight;
+//            this.status = Status.CREATED;
+//        } else {
+//            System.out.println("Paczka nieutworzona");
+//        }
+//    }
 
-    public Package(String sender, String recipient, int weight, boolean priority) {
+    public Package(Person sender, Person recipient, int weight, boolean priority) {
         this.sender = sender;
         this.recipient = recipient;
         this.weight = weight;
         this.priority = priority;
     }
+
+    public Package(Person sender, Person recipient, int weight, boolean priority, Status status) {
+        this.sender = sender;
+        this.recipient = recipient;
+        this.weight = weight;
+        this.priority = priority;
+        this.status = status;
+    }
+
+    //    public Package(String sender, String recipient, int weight, boolean priority) {
+//        this.sender = sender;
+//        this.recipient = recipient;
+//        this.weight = weight;
+//        this.priority = priority;
+//    }
 
     public double countPrice() {
         double price = 0;
@@ -77,5 +85,9 @@ public class Package {
 
     public void setStatus(Status status) {
         this.status = status;
+    }
+
+    public int getWeight() {
+        return weight;
     }
 }

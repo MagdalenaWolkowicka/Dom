@@ -1,4 +1,4 @@
-package obiektowe.powtorka.postOffice;
+package obiektowe.powtorka.postOffice.model;
 
 public enum Status {
     CREATED,
