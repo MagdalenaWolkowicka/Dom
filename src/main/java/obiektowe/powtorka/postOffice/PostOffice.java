@@ -1,5 +1,7 @@
 package obiektowe.powtorka.postOffice;
 
+import obiektowe.powtorka.postOffice.service.PackageService;
+
 import java.util.Scanner;
 
 public class PostOffice {

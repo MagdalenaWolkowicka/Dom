@@ -1,4 +1,6 @@
-package obiektowe.powtorka.postOffice;
+package obiektowe.powtorka.postOffice.model;
+
+import obiektowe.powtorka.postOffice.Status;
 
 import java.util.ArrayList;
 import java.util.Arrays;

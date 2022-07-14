@@ -1,6 +1,8 @@
 package obiektowe.powtorka.postOffice;
 
 
+import obiektowe.powtorka.postOffice.model.Package;
+
 public class PostOfficeDemo {
 
     static Package[] packagesTable100 = new Package[100];
