@@ -40,17 +40,6 @@ public class Package {
         this.priority = priority;
     }
 
-    public Package() {
-        List<String> senderList = new ArrayList<>(Arrays.asList("Ela", "Mela", "Cela", "Gizela", "Fela", "Hela", "Pamela"));
-        List<String> recipientList = new ArrayList<>(Arrays.asList("Radek", "Stefan", "Lucek", "Henio", "Kazik", "Zenek", "Gutek"));
-        Random random = new Random();
-        this.sender = senderList.get(random.nextInt(senderList.size()));
-        this.recipient = recipientList.get(random.nextInt(recipientList.size()));
-        this.weight = random.nextInt(100_000) + 1;
-        this.priority = random.nextBoolean();
-        this.status = Status.CREATED;
-    }
-
     public double countPrice() {
         double price = 0;
         if (weight < 500) {
