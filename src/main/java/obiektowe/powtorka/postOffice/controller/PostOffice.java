@@ -1,8 +1,10 @@
-package obiektowe.powtorka.postOffice.service;
+package obiektowe.powtorka.postOffice.controller;
 
 import obiektowe.powtorka.postOffice.Menu;
 import obiektowe.powtorka.postOffice.model.Address;
 import obiektowe.powtorka.postOffice.model.Person;
+import obiektowe.powtorka.postOffice.service.LetterService;
+import obiektowe.powtorka.postOffice.service.PackageService;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -16,7 +18,7 @@ public class PostOffice {
     private LetterService letterService = new LetterService();
 
     public void start() {
-        System.out.println("Witamy na poczcie");
+        System.out.println("Witamy na poczcie!");
         Menu menu = new Menu();
         exitPostOffixe = false;
         while (!exitPostOffixe) {
@@ -28,7 +30,7 @@ public class PostOffice {
 
     private void actionMenu() {
         Scanner scanner = new Scanner(System.in);
-        System.out.println("Wybierz opcję");
+        System.out.println("\nWybierz opcję: ");
         String option = scanner.nextLine();
         switch (option) {
             case "1":

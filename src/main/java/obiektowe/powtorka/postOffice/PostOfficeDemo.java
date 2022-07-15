@@ -2,7 +2,7 @@ package obiektowe.powtorka.postOffice;
 
 
 import obiektowe.powtorka.postOffice.model.Package;
-import obiektowe.powtorka.postOffice.service.PostOffice;
+import obiektowe.powtorka.postOffice.controller.PostOffice;
 
 public class PostOfficeDemo {
 

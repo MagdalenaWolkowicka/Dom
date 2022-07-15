@@ -1,5 +1,6 @@
 package obiektowe.powtorka.postOffice.service;
 
+import obiektowe.powtorka.postOffice.controller.PostOffice;
 import obiektowe.powtorka.postOffice.model.Letter;
 import obiektowe.powtorka.postOffice.model.Person;
 import obiektowe.powtorka.postOffice.model.Status;
