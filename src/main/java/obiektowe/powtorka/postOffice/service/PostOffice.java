@@ -2,9 +2,7 @@ package obiektowe.powtorka.postOffice.service;
 
 import obiektowe.powtorka.postOffice.Menu;
 import obiektowe.powtorka.postOffice.model.Address;
-import obiektowe.powtorka.postOffice.model.Package;
 import obiektowe.powtorka.postOffice.model.Person;
-import obiektowe.powtorka.postOffice.service.PackageService;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -15,6 +13,7 @@ public class PostOffice {
     private boolean exitPostOffixe = false;
     private PackageService packageService = new PackageService();
     private static double takings;
+    private LetterService letterService = new LetterService();
 
     public void start() {
         System.out.println("Witamy na poczcie");
@@ -39,10 +38,25 @@ public class PostOffice {
                 packageService.displaySentPackages();
                 break;
             case "3":
-                packageService.displayAllPackages();
+                packageService.displayAll();
                 break;
             case "4":
+                letterService.sendLetter();
+                break;
+            case "5":
+                letterService.displayAcceptedLetters();
+                break;
+            case "6":
+                letterService.displayAll();
+                break;
+            case "7":
+                packageService.displayLastSentPackage();
+                break;
+            case "8":
                 System.out.println(getTakings());
+                break;
+            case "9":
+                letterService.sendPostman();
                 break;
             case "0":
                 exitPostOffixe = true;
@@ -71,9 +85,11 @@ public class PostOffice {
             String street = scanner.nextLine();
             System.out.println("Podaj numer domu");
             int houseNumber = scanner.nextInt();
+            scanner.nextLine();
             System.out.println("Podaj kod pocztowy");
             String zipCode = scanner.nextLine();
             Person person = new Person(name, surname, new Address(city, street, houseNumber, zipCode));
+            people.add(person);
         }
         return people;
     }

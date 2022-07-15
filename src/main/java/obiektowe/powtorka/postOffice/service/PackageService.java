@@ -43,9 +43,7 @@ public class PackageService implements Countable, Visible {
     private Package createPackage() {
         PostOffice postOffice = new PostOffice();
         List<Person> people = postOffice.askPersonInfo();
-        int weight = getPackageWeight();
-        boolean priority = postOffice.isPriority();
-        return new Package(people.get(0), people.get(1), weight, priority);
+        return new Package(people.get(0), people.get(1), getPackageWeight(),  postOffice.isPriority());
     }
 
     private int getPackageWeight() {
