@@ -18,7 +18,7 @@ public class Menu {
         menuOptions.add("6. Wyświetl wszystkie listy");
         menuOptions.add("7. Wyświelt ostatnią wysłaną paczkę");
         menuOptions.add("8. Wyświetl utarg");
-        menuOptions.add("9.Wyślij listonosza");
+        menuOptions.add("9. Wyślij listonosza");
         menuOptions.add("0. Wyjdź");
         menuOptionsToPrint = String.join("\n", menuOptions);
     }

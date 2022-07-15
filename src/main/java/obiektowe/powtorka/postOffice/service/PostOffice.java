@@ -53,7 +53,7 @@ public class PostOffice {
                 packageService.displayLastSentPackage();
                 break;
             case "8":
-                System.out.println(getTakings());
+                System.out.println("Utarg wynosi: " + getTakings());
                 break;
             case "9":
                 letterService.sendPostman();
@@ -106,9 +106,30 @@ public class PostOffice {
     }
 
     public double pay(double price) {
-        System.out.println("Wysyłka kosztuje " + price + " zł. Zapłać");
+        printShippingCost(price);
+        System.out.println("Zapłać");
         Scanner scanner = new Scanner(System.in);
         return scanner.nextDouble();
+    }
+
+    public void printShippingCost(double price) {
+        System.out.println("Wysyłka kosztuje " + price + " zł");
+    }
+
+    public void printNotEnoughMoney() {
+        System.out.println("Za mało pieniędzy, nie udało się wysłać");
+    }
+
+    public void printSent() {
+        System.out.println("Wysłane ;)");
+    }
+
+    public void  printGiveRestOfMoney(double restOfMoney) {
+        System.out.println("Wydaję " + restOfMoney + " zł reszty.");
+    }
+
+    public void printLetterBoxIsFull() {
+        System.out.println("Skrzynka pocztowa jest pełna, wyślij listonosza!");
     }
 
     public void increaseTakings(double price) {
@@ -117,10 +138,6 @@ public class PostOffice {
 
     public double getTakings() {
         return takings;
-    }
-
-    public void setTakings(double takings) {
-        this.takings = takings;
     }
 
     public void printNoDataToDisplay() {

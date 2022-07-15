@@ -13,23 +13,25 @@ public class LetterService implements Countable, Visible {
     private List<Letter> allLetters = new ArrayList<>();
 
     public void sendLetter() {
+        PostOffice postOffice = new PostOffice();
         if (acceptedLetters.size() < 10) {
-            PostOffice postOffice = new PostOffice();
             Letter letter = createLetter();
             double price = countPrice(letter.isPriority());
             double money = postOffice.pay(price);
             if (money < price) {
-                System.out.println("Wysyłka kosztuje " + price + " zł.");
-                System.out.println("Za mało kasy, nie udało się wysłać");
+                postOffice.printShippingCost(price);
+                postOffice.printNotEnoughMoney();
+                letter.setStatus(Status.DELETED);
                 allLetters.add(letter);
                 return;
             } else if (money == price) {
                 letter.setStatus(Status.ACCEPTED);
-                System.out.println("Paczka wysłana ;)");
+                postOffice.printSent();
             } else {
                 letter.setStatus(Status.ACCEPTED);
                 double restOfMoney = Math.round((money - price) * 100);
-                System.out.println("Wydaję " + (restOfMoney / 100) + " zł reszty.");
+                restOfMoney = restOfMoney / 100;
+                postOffice.printGiveRestOfMoney(restOfMoney);
             }
             if (letter.getStatus().equals(Status.ACCEPTED)) {
                 postOffice.increaseTakings(price);
@@ -37,10 +39,9 @@ public class LetterService implements Countable, Visible {
             }
             allLetters.add(letter);
         } else {
-            System.out.println("Skrzynka pocztowa pełna, wyślij listonosza!");
+            postOffice.printLetterBoxIsFull();
         }
     }
-
 
     private Letter createLetter() {
         PostOffice postOffice = new PostOffice();
@@ -56,7 +57,7 @@ public class LetterService implements Countable, Visible {
         } else {
             price = 6;
         }
-        return  price;
+        return price;
     }
 
     @Override

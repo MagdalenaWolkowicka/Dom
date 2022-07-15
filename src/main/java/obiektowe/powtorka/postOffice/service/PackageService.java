@@ -19,18 +19,18 @@ public class PackageService implements Countable, Visible {
         double price = countPrice(newPackage.isPriority());
         double money = postOffice.pay(price);
         if (money < price) {
-            System.out.println("Wysyłka kosztuje " + price + " zł.");
-            System.out.println("Za mało kasy, nie udało się wysłać");
-
+            postOffice.printShippingCost(price);
+            postOffice.printNotEnoughMoney();
             allPackages.add(newPackage);
             return;
         } else if (money == price) {
             newPackage.setStatus(Status.SENT);
-            System.out.println("Paczka wysłana ;)");
+            postOffice.printSent();
         } else {
             newPackage.setStatus(Status.SENT);
             double restOfMoney = Math.round((money - price) * 100);
-            System.out.println("Wydaję " + (restOfMoney / 100) + " zł reszty.");
+            restOfMoney = restOfMoney / 100;
+            postOffice.printGiveRestOfMoney(restOfMoney);
         }
         if (newPackage.getStatus().equals(Status.SENT)) {
             postOffice.increaseTakings(price);
@@ -38,7 +38,6 @@ public class PackageService implements Countable, Visible {
         }
         allPackages.add(newPackage);
     }
-
 
     private Package createPackage() {
         PostOffice postOffice = new PostOffice();
@@ -53,15 +52,23 @@ public class PackageService implements Countable, Visible {
     }
 
     public void displayLastSentPackage() {
-        System.out.println(sentPackages.get(sentPackages.size() - 1));
+        PostOffice postOffice = new PostOffice();
+        if (!sentPackages.isEmpty()) {
+            System.out.println(sentPackages.get(sentPackages.size() - 1));
+        } else {
+            postOffice.printNoDataToDisplay();
+        }
     }
 
-
     public void displaySentPackages() {
-        for (Package sentPackage : sentPackages) {
-            System.out.println(sentPackage);
+        PostOffice postOffice = new PostOffice();
+        if (!sentPackages.isEmpty()) {
+            for (Package sentPackage : sentPackages) {
+                System.out.println(sentPackage);
+            }
+        } else {
+            postOffice.printNoDataToDisplay();
         }
-
     }
 
     @Override
@@ -93,6 +100,7 @@ public class PackageService implements Countable, Visible {
         } else {
             postOffice.printNoDataToDisplay();
         }
-
     }
+
+
 }
