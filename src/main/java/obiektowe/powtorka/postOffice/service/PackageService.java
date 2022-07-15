@@ -16,7 +16,7 @@ public class PackageService implements Countable, Visible {
     public void sendPackage() {
         PostOffice postOffice = new PostOffice();
         Package newPackage = createPackage();
-        double price = countPrice();
+        double price = countPrice(newPackage.isPriority());
         double money = postOffice.pay(price);
         if (money < price) {
             System.out.println("Wysyłka kosztuje " + price + " zł.");
@@ -29,8 +29,8 @@ public class PackageService implements Countable, Visible {
             System.out.println("Paczka wysłana ;)");
         } else {
             newPackage.setStatus(Status.SENT);
-            double restOfMoney = money - price;
-            System.out.println("Wydaję " + restOfMoney + " zł reszty.");
+            double restOfMoney = Math.round((money - price) * 100);
+            System.out.println("Wydaję " + (restOfMoney / 100) + " zł reszty.");
         }
         if (newPackage.getStatus().equals(Status.SENT)) {
             postOffice.increaseTakings(price);
@@ -43,7 +43,7 @@ public class PackageService implements Countable, Visible {
     private Package createPackage() {
         PostOffice postOffice = new PostOffice();
         List<Person> people = postOffice.askPersonInfo();
-        return new Package(people.get(0), people.get(1), getPackageWeight(),  postOffice.isPriority());
+        return new Package(people.get(0), people.get(1), postOffice.isPriority());
     }
 
     private int getPackageWeight() {
@@ -65,10 +65,8 @@ public class PackageService implements Countable, Visible {
     }
 
     @Override
-    public double countPrice() {
-        PostOffice postOffice = new PostOffice();
+    public double countPrice(boolean priority) {
         int weight = getPackageWeight();
-        boolean priority = postOffice.isPriority();
         double price = 0;
         if (weight < 500) {
             price = 5.0;

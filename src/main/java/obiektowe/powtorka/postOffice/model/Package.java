@@ -28,14 +28,14 @@ public class Package {
 //        }
 //    }
 
-    public Package(Person sender, Person recipient, int weight, boolean priority) {
+    public Package(Person sender, Person recipient, boolean priority) {
         this.sender = sender;
         this.recipient = recipient;
         this.weight = weight;
         this.priority = priority;
     }
 
-    public Package(Person sender, Person recipient, int weight, boolean priority, Status status) {
+    public Package(Person sender, Person recipient, boolean priority, Status status) {
         this.sender = sender;
         this.recipient = recipient;
         this.weight = weight;
@@ -89,5 +89,9 @@ public class Package {
 
     public int getWeight() {
         return weight;
+    }
+
+    public boolean isPriority() {
+        return priority;
     }
 }

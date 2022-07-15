@@ -2,5 +2,5 @@ package obiektowe.powtorka.postOffice.service;
 
 public interface Countable {
 
-    double countPrice();
+    double countPrice(boolean priority);
 }

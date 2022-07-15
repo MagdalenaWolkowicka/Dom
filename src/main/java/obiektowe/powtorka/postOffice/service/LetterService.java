@@ -16,7 +16,7 @@ public class LetterService implements Countable, Visible {
         if (acceptedLetters.size() < 10) {
             PostOffice postOffice = new PostOffice();
             Letter letter = createLetter();
-            double price = countPrice();
+            double price = countPrice(letter.isPriority());
             double money = postOffice.pay(price);
             if (money < price) {
                 System.out.println("Wysyłka kosztuje " + price + " zł.");
@@ -28,8 +28,8 @@ public class LetterService implements Countable, Visible {
                 System.out.println("Paczka wysłana ;)");
             } else {
                 letter.setStatus(Status.ACCEPTED);
-                double restOfMoney = money - price;
-                System.out.println("Wydaję " + restOfMoney + " zł reszty.");
+                double restOfMoney = Math.round((money - price) * 100);
+                System.out.println("Wydaję " + (restOfMoney / 100) + " zł reszty.");
             }
             if (letter.getStatus().equals(Status.ACCEPTED)) {
                 postOffice.increaseTakings(price);
@@ -45,16 +45,13 @@ public class LetterService implements Countable, Visible {
     private Letter createLetter() {
         PostOffice postOffice = new PostOffice();
         List<Person> people = postOffice.askPersonInfo();
-        //boolean priority = postOffice.isPriority();
         return new Letter(people.get(0), people.get(1), postOffice.isPriority());
     }
 
     @Override
-    public double countPrice() {
+    public double countPrice(boolean priority) {
         double price = 0;
-        PostOffice postOffice = new PostOffice();
-        //boolean priority = postOffice.isPriority();
-        if (postOffice.isPriority()) {
+        if (priority) {
             price = 8.5;
         } else {
             price = 6;
